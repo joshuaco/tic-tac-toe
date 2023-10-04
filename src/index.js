@@ -58,7 +58,7 @@ const main = () => {
     game.resetGame();
     main();
   } else {
-    console.log('Bye! Thanks for playing!');
+    console.log('Bye! Thanks for playing!!');
   }
 };
 

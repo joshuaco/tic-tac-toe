@@ -16,7 +16,9 @@
 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
+  flex-direction: column;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -78,3 +80,59 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+#gameboard {
+  width: 300px;
+  height: 300px;
+  background-color: #213547;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: #fefefe;
+  border: solid 1px #213547;
+  box-sizing: border-box;
+  display: flex;
+  place-items: center;
+}
+
+.circle {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  border: 3px solid #213547;
+  margin: 0 auto;
+}
+
+.cross {
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.cross::before, .cross::after {
+  content: "";
+  position: absolute;
+  background-color: #213547;
+}
+
+.cross::before {
+  left: 40%;
+  width: 15%;
+  margin-left: 8%;
+  height: 100%;
+}
+
+.cross::after {
+  top: 40%;
+  left: 10%;
+  height: 15%;
+  margin-top: 0%;
+  width: 100%;
+}
+
