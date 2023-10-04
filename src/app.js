@@ -1,3 +1,5 @@
+import JSConfetti from "js-confetti";
+
 import createGame from "./game";
 import createBoard from "./modules/board.js";
 import createPlayer from "./modules/player.js";
@@ -52,6 +54,8 @@ const screenController = () => {
       if (winner === 'draw') {
         $info.textContent = 'It\'s a draw!';
       } else {
+        const confetti = new JSConfetti();
+        confetti.addConfetti();
         $info.textContent = `${currentPlayer.name} (${winner}) won!`;
       }
       gameOver = true;
