@@ -67,9 +67,9 @@ const screenController = () => {
   };
 
   const resetGame = () => {
-    board.reset();
-    currentPlayer = player1;
+    game.resetGame();
     gameOver = false;
+    currentPlayer = player1;
     updateScreen();
   }
 
