@@ -12,6 +12,7 @@ const game = createGame(board, player1, player2);
 const screenController = () => {
   const $gameboard = document.querySelector('#gameboard');
   const $info = document.querySelector('.info');
+  const $reset = document.querySelector('#reset');
   let currentPlayer = player1;
   let gameOver = false;
 
@@ -25,7 +26,7 @@ const screenController = () => {
   const renderBoard = () => {
     const boardData = board.getBoard();
 
-    boardData.forEach((value, index) => {
+    boardData.forEach((_, index) => {
       const $square = document.createElement('div');
       $square.classList.add('square');
       $square.id = index;
@@ -64,6 +65,15 @@ const screenController = () => {
       $info.textContent = `Current player: ${currentPlayer.symbol}`;
     }
   };
+
+  const resetGame = () => {
+    game.resetGame();
+    gameOver = false;
+    currentPlayer = player1;
+    updateScreen();
+  }
+
+  $reset.addEventListener('click', resetGame);
 
   updateScreen();
 }
