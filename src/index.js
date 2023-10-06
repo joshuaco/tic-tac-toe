@@ -26,7 +26,7 @@ const main = () => {
   console.log('Welcome to Tic-Tac-Toe! CLI version');
   printBoard();
 
-  while(!gameOver) {
+  while (!gameOver) {
     console.log(`${currentPlayer.name} is your turn`);
     const index = prompt('Select a position (1 - 9): ') - 1;
 
@@ -38,7 +38,7 @@ const main = () => {
         const winner = game.checkWinner();
         if (winner) {
           if (winner === 'draw') {
-            console.log('It\'s a draw!');
+            console.log("It's a draw!");
           } else {
             console.log(`${currentPlayer.name} (${winner}) won!`);
           }
