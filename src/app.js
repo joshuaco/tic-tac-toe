@@ -1,8 +1,8 @@
-import JSConfetti from "js-confetti";
+import JSConfetti from 'js-confetti';
 
-import createGame from "./game";
-import createBoard from "./modules/board.js";
-import createPlayer from "./modules/player.js";
+import createGame from './game';
+import createBoard from './modules/board.js';
+import createPlayer from './modules/player.js';
 
 const board = createBoard();
 const player1 = createPlayer('Player 1', 'X');
@@ -40,20 +40,22 @@ const screenController = () => {
     const index = e.target.id;
 
     if (game.makeMove(index, currentPlayer) && !gameOver) {
-      $symbolBox.classList.add(currentPlayer.symbol === 'X' ? 'cross' : 'circle' );
+      $symbolBox.classList.add(
+        currentPlayer.symbol === 'X' ? 'cross' : 'circle'
+      );
       e.target.appendChild($symbolBox);
       checkWinner();
     } else {
       console.log('Position already taken');
-    }  
+    }
     e.target.removeEventListener('click', handleClick);
-  }
+  };
 
   const checkWinner = () => {
     const winner = game.checkWinner();
     if (winner) {
       if (winner === 'draw') {
-        $info.textContent = 'It\'s a draw!';
+        $info.textContent = "It's a draw!";
       } else {
         const confetti = new JSConfetti();
         confetti.addConfetti();
@@ -71,13 +73,11 @@ const screenController = () => {
     gameOver = false;
     currentPlayer = player1;
     updateScreen();
-  }
+  };
 
   $reset.addEventListener('click', resetGame);
 
   updateScreen();
-}
+};
 
 screenController();
-
-
